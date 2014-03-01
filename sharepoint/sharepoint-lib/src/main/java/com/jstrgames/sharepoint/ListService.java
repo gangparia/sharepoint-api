@@ -222,6 +222,12 @@ public class ListService<T> {
 		}		
 	}
 	
+	/**
+	 * helper method to upload attachment to sharepoint service endpoint
+	 *  
+	 * @param addAttachment
+	 * @throws ServiceUnreachableException
+	 */
 	protected void callSoapService(final AddAttachment addAttachment) 
 			throws ServiceUnreachableException {
 		final AddAttachmentDocument command = AddAttachmentDocument.Factory.newInstance();
@@ -240,6 +246,14 @@ public class ListService<T> {
 		}
 	}
 	
+	/**
+	 * helper method to retrieve attachment collection from sharepoint service 
+	 * end point 
+	 * 
+	 * @param getAttachmentCollection
+	 * @param listFileURL
+	 * @throws ServiceUnreachableException
+	 */
 	protected void callSoapService(final GetAttachmentCollection getAttachmentCollection,
 								   final List<URL> listFileURL) 
 		throws ServiceUnreachableException {
