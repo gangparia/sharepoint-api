@@ -1,0 +1,8 @@
+apply plugin: 'application'
+
+mainClassName = 'com.jstrgames.sharepoint.Client'
+
+dependencies {
+	compile 'commons-cli:commons-cli:1.2'
+	compile project(':sharepoint-lib')	
+}

@@ -1,0 +1,10 @@
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	testCompile 'junit:junit:4.11'
+	compile 'org.apache.axis2:axis2:1.6.2'
+	compile 'org.apache.axis2:axis2-xmlbeans:1.6.2'
+	compile 'org.apache.xmlbeans:xmlbeans:2.6.0'
+}

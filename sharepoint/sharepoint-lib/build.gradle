@@ -1,0 +1,39 @@
+// define the WSDL2Java task
+task genJavaFromWSDL(type: WSDL2Java) {
+	wsdlfilename= "$buildDir/../src/main/wsdl/Lists.SP2013.wsdl"
+	databindingName='xmlbeans'
+	targetSourceFolderLocation= "$buildDir/generated/wsdl/main"
+	packageName='com.microsoft.sharepoint'
+}
+
+// add prior hook before compile
+compileJava.dependsOn genJavaFromWSDL
+// add generated wsdl java classes to source dir
+sourceSets.main.java.srcDir "$buildDir/generated/wsdl/main/src"
+sourceSets.main.java.srcDir "$buildDir/generated/wsdl/main/resources"
+sourceSets.test.java.srcDir "src/integrationTest/src"
+
+dependencies {
+	compile 'commons-collections:commons-collections:3.2'
+	compile 'commons-io:commons-io:2.4'
+
+	compile 'org.apache.axis2:axis2:1.6.2'
+	compile 'org.apache.axis2:axis2-transport-http:1.6.2'
+	compile 'org.apache.axis2:axis2-transport-local:1.6.2'
+	compile 'org.apache.axis2:axis2-xmlbeans:1.6.2'
+	
+	compile 'org.apache.xmlbeans:xmlbeans:2.6.0'
+	
+	compile 'org.slf4j:slf4j-api:1.6.4'
+	compile 'org.slf4j:slf4j-log4j12:1.6.4'
+	
+	testCompile 'junit:junit:4.11'
+	testCompile 'org.mockito:mockito-core:1.9.+'
+}
+
+test {
+	// ignore integration scripts
+	exclude 'com/jstrgames/**/TestIntegration*'	
+	// add generated axis2 xmlbean resources 
+	classpath = project.sourceSets.test.runtimeClasspath + files("$buildDir/generated/wsdl/main/resources")
+}
