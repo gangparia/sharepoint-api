@@ -1,4 +1,4 @@
-sharepoint-api
+SharePoint API
 ==============
 
 SharePoint API is a wrapper framework for SharePoint List Soap Service written in Java. 
@@ -8,3 +8,6 @@ SharePoint API is a wrapper framework for SharePoint List Soap Service written i
 
 # Quick Example
 https://github.com/johnra74/sharepoint-api/blob/master/sharepoint/sharepoint-sample/src/main/java/com/jstrgames/sharepoint/sample/ExportClient.java is a code example that demonstrates simple interaction with a SharePoint List.
+
+# Scheduled Features
+* [Version 0.2] Interact with Document Lists
